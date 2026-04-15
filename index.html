@@ -13,16 +13,14 @@ body {
     color: white;
     font-family: 'Playfair Display', serif;
 
-    /* FIXED BACKGROUND */
     background: url('https://cdn.stillwhite.com/assets/e8/a6/3a/e8a63a12a1f511e9b1880631f3556e6a/1600x.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
-/* MOBILE FULL IMAGE FIX */
+/* MOBILE FIX */
 @media (max-width: 768px) {
     body {
         background-attachment: scroll;
-        background-position: center center;
         background-size: cover;
     }
 }
@@ -34,24 +32,57 @@ body {
     padding: 40px 20px;
 }
 
-/* NAME */
+/* NAME ROW */
 .name-row {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
     font-size: 42px;
 }
 
-.left-name, .right-name {
+/* LEFT NAME SLIDE */
+.left-name {
     font-family: 'Great Vibes', cursive;
+    animation: slideLeft 1.5s ease-out forwards;
+    opacity: 0;
+}
+
+/* RIGHT NAME SLIDE */
+.right-name {
+    font-family: 'Great Vibes', cursive;
+    animation: slideRight 1.5s ease-out forwards;
+    opacity: 0;
 }
 
 .ampersand {
     font-size: 28px;
 }
 
-/* HEART ANIMATION */
+/* SLIDE ANIMATIONS */
+@keyframes slideLeft {
+    0% {
+        transform: translateX(-120px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(120px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* HEART */
 .heart {
     font-size: 26px;
     margin-top: 10px;
@@ -80,10 +111,6 @@ body {
 }
 
 /* DATE */
-.date {
-    margin-top: 10px;
-}
-
 .date .day {
     font-size: 34px;
     font-weight: bold;
@@ -141,7 +168,7 @@ button {
     cursor: pointer;
 }
 
-/* FOOTER (FIX BLUE CONTACT ISSUE) */
+/* FOOTER */
 .footer {
     display: flex;
     justify-content: center;
@@ -162,7 +189,7 @@ button {
 
 <div class="overlay">
 
-    <!-- NAME -->
+    <!-- NAME (WITH SLIDE ANIMATION) -->
     <div class="name-row">
         <div class="left-name">Thejana</div>
         <div class="ampersand">&</div>
