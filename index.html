@@ -32,7 +32,7 @@ body {
     padding: 40px 20px;
 }
 
-/* NAME ROW */
+/* NAME */
 .name-row {
     display: flex;
     justify-content: center;
@@ -41,45 +41,12 @@ body {
     font-size: 42px;
 }
 
-/* LEFT NAME SLIDE */
-.left-name {
+.left-name, .right-name {
     font-family: 'Great Vibes', cursive;
-    animation: slideLeft 1.5s ease-out forwards;
-    opacity: 0;
-}
-
-/* RIGHT NAME SLIDE */
-.right-name {
-    font-family: 'Great Vibes', cursive;
-    animation: slideRight 1.5s ease-out forwards;
-    opacity: 0;
 }
 
 .ampersand {
     font-size: 28px;
-}
-
-/* SLIDE ANIMATIONS */
-@keyframes slideLeft {
-    0% {
-        transform: translateX(-120px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideRight {
-    0% {
-        transform: translateX(120px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
 }
 
 /* HEART */
@@ -168,13 +135,16 @@ button {
     cursor: pointer;
 }
 
-/* FOOTER */
+/* FOOTER FIXED */
 .footer {
     display: flex;
-    justify-content: center;
-    gap: 120px;
+    justify-content: space-between;
     margin-top: 60px;
     font-size: 14px;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .footer, .footer * {
@@ -189,7 +159,7 @@ button {
 
 <div class="overlay">
 
-    <!-- NAME (WITH SLIDE ANIMATION) -->
+    <!-- NAME -->
     <div class="name-row">
         <div class="left-name">Thejana</div>
         <div class="ampersand">&</div>
@@ -246,17 +216,21 @@ button {
 
     <p>Kindly confirm your presence by 3rd of May</p>
 
-    <!-- FOOTER -->
+    <!-- FOOTER (FIXED ORDER) -->
     <div class="footer">
+
+        <!-- LEFT -->
+        <div>
+            Thejana Lakshan<br>
+            0772348558
+        </div>
+
+        <!-- RIGHT -->
         <div>
             Imasha Sandeepani<br>
             0766167368
         </div>
 
-        <div>
-            Thejana Lakshan<br>
-            0772348558
-        </div>
     </div>
 
 </div>
