@@ -24,7 +24,7 @@ body {
     padding: 40px 20px;
 }
 
-/* NAME ROW */
+/* NAME */
 .name-row {
     display: flex;
     justify-content: center;
@@ -33,49 +33,44 @@ body {
     font-size: 42px;
 }
 
-/* THEJANA (LEFT → RIGHT) */
-.left-name {
+.left-name, .right-name {
     font-family: 'Great Vibes', cursive;
-    animation: leftMove 2s ease;
 }
 
-/* IMASHA (RIGHT → LEFT) */
-.right-name {
-    font-family: 'Great Vibes', cursive;
-    animation: rightMove 2s ease;
-}
-
-/* AMPERSAND */
 .ampersand {
-    font-family: 'Playfair Display', serif;
-    font-size: 30px;
-    opacity: 0.9;
+    font-size: 28px;
 }
 
-/* ANIMATIONS */
-@keyframes leftMove {
-    from { opacity: 0; transform: translateX(-80px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes rightMove {
-    from { opacity: 0; transform: translateX(80px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-/* QUOTE */
+/* QUOTE (⬇️ SMALLER NOW) */
 .quote {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
+    font-size: 18px;   /* reduced size */
     margin-top: 15px;
     line-height: 1.6;
 }
 
-/* BIG TITLE */
-.big-title {
-    font-size: 28px;
-    font-weight: bold;
+/* SAVE DATE */
+.save-title {
+    font-size: 18px;
     margin-top: 20px;
+}
+
+/* DATE */
+.date {
+    margin-top: 10px;
+}
+
+.date .day {
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.date .month {
+    font-size: 22px;
+}
+
+.date .year {
+    font-size: 34px;
+    font-weight: bold;
 }
 
 /* COUNTDOWN */
@@ -84,6 +79,7 @@ body {
     justify-content: center;
     gap: 12px;
     flex-wrap: wrap;
+    margin-top: 10px;
 }
 
 .box span {
@@ -96,14 +92,27 @@ body {
     font-size: 12px;
 }
 
+/* CELEBRATION TEXT */
+.small-text {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* BIG TITLE */
+.big-title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
 /* BUTTON */
 button {
-    padding: 12px 25px;
+    padding: 8px 18px;
     border: none;
-    border-radius: 25px;
+    border-radius: 20px;
     background: white;
     color: black;
-    font-size: 15px;
+    font-size: 13px;
     cursor: pointer;
 }
 
@@ -123,14 +132,14 @@ button {
 
 <div class="overlay">
 
-    <!-- NAME SECTION -->
+    <!-- NAME -->
     <div class="name-row">
         <div class="left-name">Thejana</div>
         <div class="ampersand">&</div>
         <div class="right-name">Imasha</div>
     </div>
 
-    <!-- QUOTE -->
+    <!-- QUOTE (SMALL NOW) -->
     <div class="quote">
         “Two hearts that found their home in each other,<br>
         two souls united by love.<br>
@@ -138,11 +147,13 @@ button {
     </div>
 
     <!-- SAVE DATE -->
-    <div class="big-title">Save the Date</div>
+    <div class="save-title">Save the Date</div>
 
-    <div>20</div>
-    <div style="font-size:26px; font-weight:bold;">May</div>
-    <div>2026</div>
+    <div class="date">
+        <div class="day">20</div>
+        <div class="month">May</div>
+        <div class="year">2026</div>
+    </div>
 
     <!-- COUNTDOWN -->
     <div class="count">
@@ -153,12 +164,13 @@ button {
     </div>
 
     <!-- CELEBRATION -->
-    <div class="big-title">Celebration starts at 8.30 AM</div>
+    <div class="small-text">Celebration starts at 8.30 AM</div>
 
     <!-- VENUE -->
     <div class="big-title">Venue</div>
     <p>Wisteria Hall, Sawingir Hills, Gonapala</p>
 
+    <!-- MAP -->
     <a href="https://maps.app.goo.gl/NbGuq23K1cRNFQBo9?g_st=iw" target="_blank">
         <button>Google Map</button>
     </a>
