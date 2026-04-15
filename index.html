@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Wedding Invitation</title>
+<title>Thejana & Imasha Wedding</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -10,27 +10,28 @@ body {
     font-family: 'Segoe UI', sans-serif;
     color: white;
     text-align: center;
+
     background: url('https://cdn.stillwhite.com/assets/e8/a6/3a/e8a63a12a1f511e9b1880631f3556e6a/1600x.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
-/* FIXED DARK OVERLAY */
+/* FIXED OVERLAY (prevents mobile color change issue) */
 .overlay {
     background: rgba(0,0,0,0.75);
     min-height: 100vh;
     padding: 40px 20px;
 }
 
-/* NAME ANIMATION */
+/* NAME SLIDE ANIMATION */
 .name {
-    font-size: 40px;
+    font-size: 42px;
+    letter-spacing: 2px;
     animation: slide 2s ease;
-    letter-spacing: 1px;
 }
 
 @keyframes slide {
-    from {opacity:0; transform: translateY(-40px);}
-    to {opacity:1; transform: translateY(0);}
+    from { opacity: 0; transform: translateY(-40px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* SECTION */
@@ -38,12 +39,13 @@ body {
     margin-top: 25px;
 }
 
-/* DATE */
+/* SAVE DATE */
 .date {
-    line-height: 38px;
+    line-height: 40px;
 }
 
-.date .day, .date .year {
+.date .day,
+.date .year {
     font-size: 20px;
 }
 
@@ -52,20 +54,20 @@ body {
     font-weight: bold;
 }
 
-/* COUNTDOWN */
-.countdown {
+/* COUNTDOWN STYLE */
+.count {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-top: 15px;
     flex-wrap: wrap;
+    margin-top: 15px;
 }
 
-.time-box {
+.box {
     text-align: center;
 }
 
-.time-box span {
+.box span {
     display: block;
     font-size: 22px;
     font-weight: bold;
@@ -75,32 +77,23 @@ body {
     font-size: 12px;
 }
 
-/* BOX */
-.box {
+/* VENUE BOX */
+.venue {
     margin: 20px auto;
-    padding: 12px;
+    padding: 15px;
     border: 1px solid white;
-    border-radius: 10px;
     display: inline-block;
-}
-
-/* FORM */
-input, select {
-    padding: 10px;
-    width: 80%;
-    max-width: 300px;
-    margin: 5px;
-    border-radius: 8px;
-    border: none;
+    border-radius: 10px;
 }
 
 /* BUTTON */
 button {
-    padding: 10px 20px;
-    border-radius: 20px;
+    padding: 12px 25px;
     border: none;
+    border-radius: 25px;
     background: white;
     color: black;
+    font-size: 15px;
     cursor: pointer;
 }
 
@@ -113,9 +106,9 @@ button {
 
 .left, .right {
     width: 45%;
-    text-align: center;
 }
 </style>
+
 </head>
 
 <body>
@@ -123,7 +116,7 @@ button {
 <div class="overlay">
 
     <!-- NAME -->
-    <div class="name">Thejana & Imasha</div>
+    <div class="name">THEJANA & IMASHA</div>
 
     <!-- QUOTE -->
     <div class="section">
@@ -146,20 +139,23 @@ button {
 
     <!-- COUNTDOWN -->
     <div class="section">
-        <div class="countdown">
-            <div class="time-box">
+        <div class="count">
+            <div class="box">
                 <span id="days">0</span>
                 <div class="label">Days</div>
             </div>
-            <div class="time-box">
+
+            <div class="box">
                 <span id="hours">0</span>
                 <div class="label">Hours</div>
             </div>
-            <div class="time-box">
+
+            <div class="box">
                 <span id="minutes">0</span>
                 <div class="label">Minutes</div>
             </div>
-            <div class="time-box">
+
+            <div class="box">
                 <span id="seconds">0</span>
                 <div class="label">Seconds</div>
             </div>
@@ -167,7 +163,7 @@ button {
     </div>
 
     <!-- TIME -->
-    <div class="section box">
+    <div class="section venue">
         Celebration starts at <b>8.30 AM</b>
     </div>
 
@@ -193,15 +189,11 @@ button {
     <div class="section">
         <h3>RSVP</h3>
 
-        <input type="text" placeholder="Your Name"><br>
+        <p>Can we celebrate this happy day together?</p>
 
-        <select>
-            <option>Will you attend?</option>
-            <option>Yes</option>
-            <option>No</option>
-        </select><br>
-
-        <button>Submit</button>
+        <a href="https://forms.gle/htMU9nuuyWb7oRNV8" target="_blank">
+            <button>Submit My Response</button>
+        </a>
     </div>
 
     <!-- CONFIRM -->
