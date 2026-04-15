@@ -4,19 +4,22 @@
 <title>Thejana & Imasha Wedding</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Wedding style font (similar to your friend's elegant font) -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    color: white;
     text-align: center;
-    background: url('https://cdn.stillwhite.com/assets/e8/a6/3a/e8a63a12a1f511e9b1880631f3556e6a/1600x.jpg') no-repeat center center fixed;
-    background-size: cover;
+    color: white;
+    font-family: 'Playfair Display', serif;
 }
 
-/* FIX MOBILE COLOR SHIFT ISSUE */
-* {
-    -webkit-tap-highlight-color: transparent;
+/* BACKGROUND FIX (mobile stable) */
+body {
+    background: url('https://cdn.stillwhite.com/assets/e8/a6/3a/e8a63a12a1f511e9b1880631f3556e6a/1600x.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 /* OVERLAY */
@@ -26,44 +29,23 @@ body {
     padding: 40px 20px;
 }
 
-/* NAME ROW */
+/* SCRIPT NAME FONT */
 .name-row {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
     font-size: 40px;
-    font-weight: bold;
 }
 
-/* THEJANA LEFT → RIGHT */
-.left-name {
+.script {
     font-family: "Brush Script MT", cursive;
-    animation: leftToRight 2s ease;
 }
 
-/* IMASHA RIGHT → LEFT */
-.right-name {
-    font-family: "Brush Script MT", cursive;
-    animation: rightToLeft 2s ease;
-}
-
-/* ANIMATIONS */
-@keyframes leftToRight {
-    from { opacity: 0; transform: translateX(-80px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes rightToLeft {
-    from { opacity: 0; transform: translateX(80px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-/* HEART (NOT RED - NEUTRAL) */
+/* HEART (NO EMOJI = NO RED ISSUE) */
 .heart {
-    font-size: 30px;
+    font-size: 28px;
     color: white;
-    opacity: 0.9;
 }
 
 /* QUOTE */
@@ -75,10 +57,6 @@ body {
 }
 
 /* SAVE DATE */
-.date {
-    line-height: 40px;
-}
-
 .date .month {
     font-size: 28px;
     font-weight: bold;
@@ -90,7 +68,6 @@ body {
     justify-content: center;
     gap: 12px;
     flex-wrap: wrap;
-    margin-top: 10px;
 }
 
 .box span {
@@ -108,7 +85,7 @@ body {
     height: 25px;
 }
 
-/* BIG TITLE */
+/* TITLES */
 .big-title {
     font-size: 28px;
     font-weight: bold;
@@ -136,10 +113,13 @@ button {
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
+    font-size: 14px;
 }
 
-.left, .right {
-    width: 45%;
+/* CONTACT FIX (NO BLUE COLOR) */
+.footer, .footer * {
+    color: white !important;
+    text-decoration: none !important;
 }
 </style>
 
@@ -149,11 +129,11 @@ button {
 
 <div class="overlay">
 
-    <!-- NAME WITH ANIMATION -->
+    <!-- NAME -->
     <div class="name-row">
-        <div class="left-name">Thejana</div>
+        <div class="script">Thejana</div>
         <div class="heart">♥</div>
-        <div class="right-name">Imasha</div>
+        <div class="script">Imasha</div>
     </div>
 
     <!-- QUOTE -->
@@ -166,11 +146,9 @@ button {
     <!-- SAVE DATE -->
     <div class="section">
         <h3>Save the Date</h3>
-        <div class="date">
-            <div>20</div>
-            <div class="month">May</div>
-            <div>2026</div>
-        </div>
+        <div>20</div>
+        <div class="date"><span class="month">May</span></div>
+        <div>2026</div>
     </div>
 
     <!-- COUNTDOWN -->
@@ -200,7 +178,7 @@ button {
 
     <div class="space"></div>
 
-    <!-- CELEBRATION -->
+    <!-- TIME -->
     <div class="section">
         Celebration starts at <b>8.30 AM</b>
     </div>
@@ -227,7 +205,7 @@ button {
     <p class="small">Can we celebrate this happy day together?</p>
 
     <a href="https://forms.gle/GMM598w6QCJGeGQx7" target="_blank">
-        <button>Response</button>
+        <button>Submit My Response</button>
     </a>
 
     <!-- CONFIRM -->
