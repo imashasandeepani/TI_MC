@@ -10,50 +10,77 @@ body {
     font-family: 'Segoe UI', sans-serif;
     color: white;
     text-align: center;
-}
-
-/* FIX MOBILE IMAGE ISSUE */
-body {
-    background: url('https://cdn.stillwhite.com/assets/e8/a6/3a/e8a63a12a1f511e9b1880631f3556e6a/1600x.jpg') no-repeat center center;
+    background: url('https://cdn.stillwhite.com/assets/e8/a6/3a/e8a63a12a1f511e9b1880631f3556e6a/1600x.jpg') no-repeat center center fixed;
     background-size: cover;
-    background-attachment: fixed;
 }
 
-/* DARK OVERLAY */
+/* FIX MOBILE COLOR SHIFT ISSUE */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* OVERLAY */
 .overlay {
     background: rgba(0,0,0,0.75);
     min-height: 100vh;
     padding: 40px 20px;
 }
 
-/* NAME */
-.name {
-    font-size: 42px;
-    letter-spacing: 2px;
-    animation: slide 2s ease;
+/* NAME ROW */
+.name-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 40px;
+    font-weight: bold;
 }
 
-@keyframes slide {
-    from {opacity:0; transform: translateY(-40px);}
-    to {opacity:1; transform: translateY(0);}
+/* THEJANA LEFT → RIGHT */
+.left-name {
+    font-family: "Brush Script MT", cursive;
+    animation: leftToRight 2s ease;
 }
 
-/* SCRIPT STYLE QUOTE */
+/* IMASHA RIGHT → LEFT */
+.right-name {
+    font-family: "Brush Script MT", cursive;
+    animation: rightToLeft 2s ease;
+}
+
+/* ANIMATIONS */
+@keyframes leftToRight {
+    from { opacity: 0; transform: translateX(-80px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes rightToLeft {
+    from { opacity: 0; transform: translateX(80px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* HEART (NOT RED - NEUTRAL) */
+.heart {
+    font-size: 30px;
+    color: white;
+    opacity: 0.9;
+}
+
+/* QUOTE */
 .quote {
     font-family: "Brush Script MT", cursive;
     font-size: 24px;
-    line-height: 1.6;
     margin-top: 20px;
+    line-height: 1.6;
 }
 
 /* SAVE DATE */
 .date {
-    font-size: 18px;
-    line-height: 35px;
+    line-height: 40px;
 }
 
 .date .month {
-    font-size: 26px;
+    font-size: 28px;
     font-weight: bold;
 }
 
@@ -63,26 +90,32 @@ body {
     justify-content: center;
     gap: 12px;
     flex-wrap: wrap;
+    margin-top: 10px;
 }
 
 .box span {
-    display: block;
     font-size: 22px;
     font-weight: bold;
+    display: block;
 }
 
 .label {
     font-size: 12px;
 }
 
-/* VENUE + RSVP BIG */
+/* SPACE */
+.space {
+    height: 25px;
+}
+
+/* BIG TITLE */
 .big-title {
     font-size: 28px;
     font-weight: bold;
     margin-top: 20px;
 }
 
-/* SMALL TEXT (MAP + RESPONSE) */
+/* SMALL TEXT */
 .small {
     font-size: 14px;
 }
@@ -94,7 +127,7 @@ button {
     border-radius: 25px;
     background: white;
     color: black;
-    font-size: 14px;
+    font-size: 15px;
     cursor: pointer;
 }
 
@@ -103,13 +136,6 @@ button {
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
-    font-size: 14px;
-}
-
-/* FIX PHONE NUMBER BLUE ISSUE */
-.footer a {
-    color: white;
-    text-decoration: none;
 }
 
 .left, .right {
@@ -123,10 +149,14 @@ button {
 
 <div class="overlay">
 
-    <!-- NAME -->
-    <div class="name">THEJANA & IMASHA</div>
+    <!-- NAME WITH ANIMATION -->
+    <div class="name-row">
+        <div class="left-name">Thejana</div>
+        <div class="heart">♥</div>
+        <div class="right-name">Imasha</div>
+    </div>
 
-    <!-- QUOTE (SCRIPT STYLE) -->
+    <!-- QUOTE -->
     <div class="quote">
         “Two hearts that found their home in each other,<br>
         two souls united by love.<br>
@@ -168,16 +198,18 @@ button {
         </div>
     </div>
 
-    <!-- TIME -->
+    <div class="space"></div>
+
+    <!-- CELEBRATION -->
     <div class="section">
         Celebration starts at <b>8.30 AM</b>
     </div>
 
-    <!-- VENUE (BIG) -->
+    <!-- VENUE -->
     <div class="big-title">Venue</div>
     <p>Wisteria Hall, Sawingir Hills, Gonapala</p>
 
-    <!-- MAP (SMALL) -->
+    <!-- MAP -->
     <div class="small">
         <a href="https://maps.app.goo.gl/NbGuq23K1cRNFQBo9?g_st=iw" target="_blank">
             <button>Google Map</button>
@@ -189,7 +221,7 @@ button {
         <p><i>Your presence will be a cherished blessing on our special day</i></p>
     </div>
 
-    <!-- RSVP (BIG TITLE) -->
+    <!-- RSVP -->
     <div class="big-title">RSVP</div>
 
     <p class="small">Can we celebrate this happy day together?</p>
