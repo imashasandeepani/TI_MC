@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Thejana & Imasha Wedding</title>
+<title>Wedding Invitation</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -14,21 +14,28 @@ body {
     background-size: cover;
 }
 
-/* DARK OVERLAY */
+/* FIXED OVERLAY (prevents color flicker) */
 .overlay {
-    background: rgba(0,0,0,0.65);
+    background: rgba(0,0,0,0.7);
     min-height: 100vh;
     padding: 40px 20px;
 }
 
-/* SLIDE NAME ANIMATION */
-.slide-name {
-    font-size: 48px;
-    animation: slideIn 2s ease-in-out;
+/* COUNTDOWN TOP */
+.count-top {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* NAME ANIMATION */
+.name {
+    font-size: 42px;
+    letter-spacing: 2px;
+    animation: slideIn 2s ease;
 }
 
 @keyframes slideIn {
-    from { opacity: 0; transform: translateY(-50px); }
+    from { opacity: 0; transform: translateY(-40px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
@@ -45,29 +52,29 @@ body {
 }
 
 /* VERTICAL DATE */
-.date-box {
+.date {
     font-size: 22px;
-    line-height: 40px;
-    letter-spacing: 2px;
+    line-height: 38px;
 }
 
-/* RSVP */
+/* FORM */
 input, select {
     padding: 10px;
     width: 80%;
     max-width: 300px;
-    margin: 5px;
+    margin: 6px;
     border-radius: 8px;
     border: none;
 }
 
+/* BUTTON */
 button {
     padding: 12px 25px;
     border: none;
     border-radius: 25px;
-    background: #e91e63;
-    color: white;
-    font-size: 16px;
+    background: white;
+    color: black;
+    font-size: 15px;
     cursor: pointer;
 }
 
@@ -76,15 +83,12 @@ button {
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
-    font-size: 14px;
 }
 
 .left, .right {
     width: 45%;
+    text-align: center;
 }
-
-.left { text-align: left; }
-.right { text-align: right; }
 </style>
 
 </head>
@@ -93,8 +97,13 @@ button {
 
 <div class="overlay">
 
-    <!-- SLIDE NAME -->
-    <div class="slide-name">Thejana & Imasha</div>
+    <!-- COUNTDOWN ABOVE -->
+    <div class="count-top" id="countdown"></div>
+
+    <!-- NAME -->
+    <div class="name">
+        THEJANA ♥ IMASHA
+    </div>
 
     <!-- QUOTE -->
     <div class="section">
@@ -107,18 +116,12 @@ button {
 
     <!-- SAVE DATE -->
     <div class="section">
-        <h2>Save the Date</h2>
-        <div class="date-box">
+        <h3>Save the Date</h3>
+        <div class="date">
             20<br>
             May<br>
             2026
         </div>
-    </div>
-
-    <!-- COUNTDOWN TITLE -->
-    <div class="section">
-        <h2>Time Remaining</h2>
-        <h3 id="countdown"></h3>
     </div>
 
     <!-- CELEBRATION -->
@@ -128,7 +131,7 @@ button {
 
     <!-- VENUE -->
     <div class="section">
-        <h2>Venue</h2>
+        <h3>Venue</h3>
         <p>Wisteria Hall, Sawingir Hills, Gonapala</p>
     </div>
 
@@ -139,23 +142,22 @@ button {
         </a>
     </div>
 
-    <!-- MESSAGE -->
+    <!-- ITALIC MESSAGE -->
     <div class="section">
         <p><i>Your presence will be a cherished blessing on our special day</i></p>
     </div>
 
     <!-- RSVP -->
     <div class="section">
-        <h2>RSVP</h2>
+        <h3>RSVP</h3>
 
         <input type="text" placeholder="Your Name"><br>
+
         <select>
             <option>Will you attend?</option>
             <option>Yes</option>
             <option>No</option>
         </select><br>
-
-        <input type="text" placeholder="Message (optional)"><br>
 
         <button>Submit</button>
     </div>
@@ -186,19 +188,16 @@ button {
 var weddingDate = new Date("May 20, 2026 08:30:00").getTime();
 
 setInterval(function() {
+
     var now = new Date().getTime();
     var distance = weddingDate - now;
 
-    var totalSeconds = Math.floor(distance / 1000);
-
-    var months = Math.floor(totalSeconds / (30 * 24 * 60 * 60));
-    var days = Math.floor((totalSeconds % (30 * 24 * 60 * 60)) / (24 * 60 * 60));
-    var hours = Math.floor((totalSeconds % (24 * 60 * 60)) / (60 * 60));
-    var minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
-    var seconds = totalSeconds % 60;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     document.getElementById("countdown").innerHTML =
-        months + " Months " +
         days + " Days " +
         hours + " Hours " +
         minutes + " Minutes " +
