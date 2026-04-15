@@ -4,8 +4,7 @@
 <title>Thejana & Imasha Wedding</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Wedding style font (similar to your friend's elegant font) -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 body {
@@ -13,10 +12,6 @@ body {
     text-align: center;
     color: white;
     font-family: 'Playfair Display', serif;
-}
-
-/* BACKGROUND FIX (mobile stable) */
-body {
     background: url('https://cdn.stillwhite.com/assets/e8/a6/3a/e8a63a12a1f511e9b1880631f3556e6a/1600x.jpg') no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
@@ -29,37 +24,51 @@ body {
     padding: 40px 20px;
 }
 
-/* SCRIPT NAME FONT */
-.name-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    font-size: 40px;
-}
-
-.script {
-    font-family: "Brush Script MT", cursive;
-}
-
-/* HEART (NO EMOJI = NO RED ISSUE) */
-.heart {
-    font-size: 28px;
-    color: white;
+/* NAME */
+.name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 44px;
 }
 
 /* QUOTE */
 .quote {
-    font-family: "Brush Script MT", cursive;
-    font-size: 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
     margin-top: 20px;
     line-height: 1.6;
 }
 
-/* SAVE DATE */
-.date .month {
+/* BOLD TOPICS */
+.big-title {
     font-size: 28px;
     font-weight: bold;
+    margin-top: 20px;
+}
+
+/* SAVE DATE */
+.date {
+    font-size: 18px;
+    line-height: 35px;
+}
+
+.date .day {
+    font-size: 30px;   /* 20 bigger */
+    font-weight: bold;
+}
+
+.date .month {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.date .year {
+    font-size: 30px;   /* 2026 bigger */
+    font-weight: bold;
+}
+
+/* SPACE AFTER DATE */
+.after-date-space {
+    height: 20px;
 }
 
 /* COUNTDOWN */
@@ -80,23 +89,6 @@ body {
     font-size: 12px;
 }
 
-/* SPACE */
-.space {
-    height: 25px;
-}
-
-/* TITLES */
-.big-title {
-    font-size: 28px;
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-/* SMALL TEXT */
-.small {
-    font-size: 14px;
-}
-
 /* BUTTON */
 button {
     padding: 12px 25px;
@@ -105,7 +97,6 @@ button {
     background: white;
     color: black;
     font-size: 15px;
-    cursor: pointer;
 }
 
 /* FOOTER */
@@ -116,10 +107,8 @@ button {
     font-size: 14px;
 }
 
-/* CONTACT FIX (NO BLUE COLOR) */
-.footer, .footer * {
+.footer * {
     color: white !important;
-    text-decoration: none !important;
 }
 </style>
 
@@ -130,11 +119,7 @@ button {
 <div class="overlay">
 
     <!-- NAME -->
-    <div class="name-row">
-        <div class="script">Thejana</div>
-        <div class="heart">♥</div>
-        <div class="script">Imasha</div>
-    </div>
+    <div class="name">Thejana & Imasha</div>
 
     <!-- QUOTE -->
     <div class="quote">
@@ -144,84 +129,63 @@ button {
     </div>
 
     <!-- SAVE DATE -->
-    <div class="section">
-        <h3>Save the Date</h3>
-        <div>20</div>
-        <div class="date"><span class="month">May</span></div>
-        <div>2026</div>
+    <div class="big-title">Save the Date</div>
+
+    <div class="date">
+        <div class="day">20</div>
+        <div class="month">May</div>
+        <div class="year">2026</div>
     </div>
+
+    <!-- SPACE BEFORE COUNTDOWN -->
+    <div class="after-date-space"></div>
 
     <!-- COUNTDOWN -->
-    <div class="section">
-        <div class="count">
-            <div class="box">
-                <span id="days">0</span>
-                <div class="label">Days</div>
-            </div>
-
-            <div class="box">
-                <span id="hours">0</span>
-                <div class="label">Hours</div>
-            </div>
-
-            <div class="box">
-                <span id="minutes">0</span>
-                <div class="label">Minutes</div>
-            </div>
-
-            <div class="box">
-                <span id="seconds">0</span>
-                <div class="label">Seconds</div>
-            </div>
-        </div>
+    <div class="count">
+        <div class="box"><span id="days">0</span><div class="label">Days</div></div>
+        <div class="box"><span id="hours">0</span><div class="label">Hours</div></div>
+        <div class="box"><span id="minutes">0</span><div class="label">Minutes</div></div>
+        <div class="box"><span id="seconds">0</span><div class="label">Seconds</div></div>
     </div>
 
-    <div class="space"></div>
-
-    <!-- TIME -->
-    <div class="section">
-        Celebration starts at <b>8.30 AM</b>
-    </div>
+    <!-- CELEBRATION -->
+    <div class="big-title">Celebration starts at 8.30 AM</div>
 
     <!-- VENUE -->
     <div class="big-title">Venue</div>
     <p>Wisteria Hall, Sawingir Hills, Gonapala</p>
 
     <!-- MAP -->
-    <div class="small">
-        <a href="https://maps.app.goo.gl/NbGuq23K1cRNFQBo9?g_st=iw" target="_blank">
-            <button>Google Map</button>
-        </a>
-    </div>
+    <a href="https://maps.app.goo.gl/NbGuq23K1cRNFQBo9?g_st=iw" target="_blank">
+        <button>Google Map</button>
+    </a>
 
-    <!-- MESSAGE -->
-    <div class="section">
-        <p><i>Your presence will be a cherished blessing on our special day</i></p>
+    <!-- MESSAGE (NOT ITALIC) -->
+    <div class="big-title" style="font-size:18px; font-weight:400; margin-top:20px;">
+        Your presence will be a cherished blessing on our special day
     </div>
 
     <!-- RSVP -->
     <div class="big-title">RSVP</div>
 
-    <p class="small">Can we celebrate this happy day together?</p>
+    <p>Can we celebrate this happy day together?</p>
 
     <a href="https://forms.gle/GMM598w6QCJGeGQx7" target="_blank">
         <button>Submit My Response</button>
     </a>
 
     <!-- CONFIRM -->
-    <div class="section">
-        Kindly confirm your presence by 3rd of May
-    </div>
+    <p>Kindly confirm your presence by 3rd of May</p>
 
     <!-- FOOTER -->
     <div class="footer">
 
-        <div class="left">
+        <div>
             Imasha Sandeepani<br>
             0766167368
         </div>
 
-        <div class="right">
+        <div>
             Thejana Lakshan<br>
             0772348558
         </div>
