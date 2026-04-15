@@ -10,19 +10,23 @@ body {
     font-family: 'Segoe UI', sans-serif;
     color: white;
     text-align: center;
-
-    background: url('https://cdn.stillwhite.com/assets/e8/a6/3a/e8a63a12a1f511e9b1880631f3556e6a/1600x.jpg') no-repeat center center fixed;
-    background-size: cover;
 }
 
-/* FIXED OVERLAY (prevents mobile color issues) */
+/* FIX MOBILE IMAGE ISSUE */
+body {
+    background: url('https://cdn.stillwhite.com/assets/e8/a6/3a/e8a63a12a1f511e9b1880631f3556e6a/1600x.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* DARK OVERLAY */
 .overlay {
     background: rgba(0,0,0,0.75);
     min-height: 100vh;
     padding: 40px 20px;
 }
 
-/* NAME ANIMATION */
+/* NAME */
 .name {
     font-size: 42px;
     letter-spacing: 2px;
@@ -30,27 +34,26 @@ body {
 }
 
 @keyframes slide {
-    from { opacity: 0; transform: translateY(-40px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {opacity:0; transform: translateY(-40px);}
+    to {opacity:1; transform: translateY(0);}
 }
 
-/* SECTION */
-.section {
-    margin-top: 25px;
+/* SCRIPT STYLE QUOTE */
+.quote {
+    font-family: "Brush Script MT", cursive;
+    font-size: 24px;
+    line-height: 1.6;
+    margin-top: 20px;
 }
 
 /* SAVE DATE */
 .date {
-    line-height: 40px;
-}
-
-.date .day,
-.date .year {
-    font-size: 20px;
+    font-size: 18px;
+    line-height: 35px;
 }
 
 .date .month {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: bold;
 }
 
@@ -58,13 +61,8 @@ body {
 .count {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 12px;
     flex-wrap: wrap;
-    margin-top: 15px;
-}
-
-.box {
-    text-align: center;
 }
 
 .box span {
@@ -77,13 +75,16 @@ body {
     font-size: 12px;
 }
 
-/* VENUE BOX */
-.venue {
-    margin: 20px auto;
-    padding: 15px;
-    border: 1px solid white;
-    display: inline-block;
-    border-radius: 10px;
+/* VENUE + RSVP BIG */
+.big-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* SMALL TEXT (MAP + RESPONSE) */
+.small {
+    font-size: 14px;
 }
 
 /* BUTTON */
@@ -93,7 +94,7 @@ button {
     border-radius: 25px;
     background: white;
     color: black;
-    font-size: 15px;
+    font-size: 14px;
     cursor: pointer;
 }
 
@@ -102,6 +103,13 @@ button {
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
+    font-size: 14px;
+}
+
+/* FIX PHONE NUMBER BLUE ISSUE */
+.footer a {
+    color: white;
+    text-decoration: none;
 }
 
 .left, .right {
@@ -118,22 +126,20 @@ button {
     <!-- NAME -->
     <div class="name">THEJANA & IMASHA</div>
 
-    <!-- QUOTE -->
-    <div class="section">
-        <p>
+    <!-- QUOTE (SCRIPT STYLE) -->
+    <div class="quote">
         “Two hearts that found their home in each other,<br>
         two souls united by love.<br>
         We invite you to witness the beginning of our forever.”
-        </p>
     </div>
 
     <!-- SAVE DATE -->
     <div class="section">
         <h3>Save the Date</h3>
         <div class="date">
-            <div class="day">20</div>
+            <div>20</div>
             <div class="month">May</div>
-            <div class="year">2026</div>
+            <div>2026</div>
         </div>
     </div>
 
@@ -163,20 +169,18 @@ button {
     </div>
 
     <!-- TIME -->
-    <div class="section venue">
+    <div class="section">
         Celebration starts at <b>8.30 AM</b>
     </div>
 
-    <!-- VENUE -->
-    <div class="section">
-        <h3>Venue</h3>
-        <p>Wisteria Hall, Sawingir Hills, Gonapala</p>
-    </div>
+    <!-- VENUE (BIG) -->
+    <div class="big-title">Venue</div>
+    <p>Wisteria Hall, Sawingir Hills, Gonapala</p>
 
-    <!-- MAP -->
-    <div class="section">
+    <!-- MAP (SMALL) -->
+    <div class="small">
         <a href="https://maps.app.goo.gl/NbGuq23K1cRNFQBo9?g_st=iw" target="_blank">
-            <button>Open Google Map</button>
+            <button>Google Map</button>
         </a>
     </div>
 
@@ -185,20 +189,18 @@ button {
         <p><i>Your presence will be a cherished blessing on our special day</i></p>
     </div>
 
-    <!-- RSVP -->
-    <div class="section">
-        <h3>RSVP</h3>
+    <!-- RSVP (BIG TITLE) -->
+    <div class="big-title">RSVP</div>
 
-        <p>Can we celebrate this happy day together?</p>
+    <p class="small">Can we celebrate this happy day together?</p>
 
-        <a href="https://forms.gle/GMM598w6QCJGeGQx7" target="_blank">
-            <button>Submit My Response</button>
-        </a>
-    </div>
+    <a href="https://forms.gle/GMM598w6QCJGeGQx7" target="_blank">
+        <button>Response</button>
+    </a>
 
     <!-- CONFIRM -->
     <div class="section">
-        <p><b>Kindly confirm your presence by 3rd of May</b></p>
+        Kindly confirm your presence by 3rd of May
     </div>
 
     <!-- FOOTER -->
@@ -222,7 +224,6 @@ button {
 var weddingDate = new Date("May 20, 2026 08:30:00").getTime();
 
 setInterval(function() {
-
     var now = new Date().getTime();
     var distance = weddingDate - now;
 
