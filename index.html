@@ -24,51 +24,58 @@ body {
     padding: 40px 20px;
 }
 
-/* NAME */
-.name {
+/* NAME ROW */
+.name-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px; /* SPACE BETWEEN NAMES */
+    font-size: 42px;
+}
+
+/* THEJANA LEFT → RIGHT */
+.left-name {
     font-family: 'Great Vibes', cursive;
-    font-size: 44px;
+    animation: leftMove 2s ease;
+}
+
+/* IMASHA RIGHT → LEFT */
+.right-name {
+    font-family: 'Great Vibes', cursive;
+    animation: rightMove 2s ease;
+}
+
+/* ANIMATIONS */
+@keyframes leftMove {
+    from { opacity: 0; transform: translateX(-100px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes rightMove {
+    from { opacity: 0; transform: translateX(100px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* HEART (NEUTRAL STYLE) */
+.heart {
+    font-size: 28px;
+    color: white;
+    margin-top: 10px;
 }
 
 /* QUOTE */
 .quote {
     font-family: 'Playfair Display', serif;
     font-size: 22px;
-    margin-top: 20px;
+    margin-top: 15px;
     line-height: 1.6;
 }
 
-/* BOLD TOPICS */
+/* BIG TITLE */
 .big-title {
     font-size: 28px;
     font-weight: bold;
     margin-top: 20px;
-}
-
-/* SAVE DATE */
-.date {
-    font-size: 18px;
-    line-height: 35px;
-}
-
-.date .day {
-    font-size: 30px;   /* 20 bigger */
-    font-weight: bold;
-}
-
-.date .month {
-    font-size: 26px;
-    font-weight: bold;
-}
-
-.date .year {
-    font-size: 30px;   /* 2026 bigger */
-    font-weight: bold;
-}
-
-/* SPACE AFTER DATE */
-.after-date-space {
-    height: 20px;
 }
 
 /* COUNTDOWN */
@@ -97,18 +104,20 @@ button {
     background: white;
     color: black;
     font-size: 15px;
+    cursor: pointer;
 }
 
-/* FOOTER */
+/* FOOTER CENTERED LAYOUT */
 .footer {
     display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
+    justify-content: center;
+    gap: 120px;
+    margin-top: 60px;
     font-size: 14px;
 }
 
-.footer * {
-    color: white !important;
+.footer div {
+    text-align: center;
 }
 </style>
 
@@ -118,8 +127,14 @@ button {
 
 <div class="overlay">
 
-    <!-- NAME -->
-    <div class="name">Thejana & Imasha</div>
+    <!-- NAME SECTION -->
+    <div class="name-row">
+        <div class="left-name">Thejana</div>
+        <div class="right-name">Imasha</div>
+    </div>
+
+    <!-- HEART AFTER NAME -->
+    <div class="heart">♥</div>
 
     <!-- QUOTE -->
     <div class="quote">
@@ -131,14 +146,9 @@ button {
     <!-- SAVE DATE -->
     <div class="big-title">Save the Date</div>
 
-    <div class="date">
-        <div class="day">20</div>
-        <div class="month">May</div>
-        <div class="year">2026</div>
-    </div>
-
-    <!-- SPACE BEFORE COUNTDOWN -->
-    <div class="after-date-space"></div>
+    <div>20</div>
+    <div style="font-size:26px; font-weight:bold;">May</div>
+    <div>2026</div>
 
     <!-- COUNTDOWN -->
     <div class="count">
@@ -148,36 +158,30 @@ button {
         <div class="box"><span id="seconds">0</span><div class="label">Seconds</div></div>
     </div>
 
-    <!-- CELEBRATION -->
+    <!-- TIME -->
     <div class="big-title">Celebration starts at 8.30 AM</div>
 
     <!-- VENUE -->
     <div class="big-title">Venue</div>
     <p>Wisteria Hall, Sawingir Hills, Gonapala</p>
 
-    <!-- MAP -->
     <a href="https://maps.app.goo.gl/NbGuq23K1cRNFQBo9?g_st=iw" target="_blank">
         <button>Google Map</button>
     </a>
 
-    <!-- MESSAGE (NOT ITALIC) -->
-    <div class="big-title" style="font-size:18px; font-weight:400; margin-top:20px;">
-        Your presence will be a cherished blessing on our special day
-    </div>
+    <!-- MESSAGE -->
+    <p>Your presence will be a cherished blessing on our special day</p>
 
     <!-- RSVP -->
     <div class="big-title">RSVP</div>
-
-    <p>Can we celebrate this happy day together?</p>
 
     <a href="https://forms.gle/GMM598w6QCJGeGQx7" target="_blank">
         <button>Submit My Response</button>
     </a>
 
-    <!-- CONFIRM -->
     <p>Kindly confirm your presence by 3rd of May</p>
 
-    <!-- FOOTER -->
+    <!-- FOOTER (CENTER BOTTOM LEFT + RIGHT) -->
     <div class="footer">
 
         <div>
