@@ -15,14 +15,13 @@ body {
 }
 
 .overlay {
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6);
     min-height: 100vh;
-    padding: 60px 20px;
+    padding: 50px 20px;
 }
 
 h1 {
-    font-size: 40px;
-    margin-bottom: 10px;
+    font-size: 42px;
 }
 
 p {
@@ -30,22 +29,42 @@ p {
     line-height: 1.6;
 }
 
+.section {
+    margin-top: 25px;
+}
+
 .box {
-    margin-top: 30px;
-    padding: 20px;
+    margin: 20px auto;
+    padding: 15px;
     border: 1px solid white;
     display: inline-block;
     border-radius: 10px;
 }
 
+img {
+    width: 250px;
+    border-radius: 15px;
+    margin: 10px;
+}
+
 button {
-    margin-top: 25px;
     padding: 12px 25px;
     border: none;
     border-radius: 25px;
     background: #e91e63;
     color: white;
     font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+input, select, textarea {
+    padding: 10px;
+    width: 80%;
+    max-width: 300px;
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
 }
 </style>
 
@@ -55,22 +74,116 @@ button {
 
 <div class="overlay">
 
+    <!-- TITLE -->
     <h1>Thejana ❤ Imasha</h1>
-    <p>Two hearts, one journey 💍</p>
 
-    <div class="box">
+    <!-- ROMANTIC MESSAGE -->
+    <div class="section">
+        <p>
+        “Two hearts that found their home in each other,<br>
+        two souls united by love.<br>
+        We invite you to witness the beginning of our forever.”
+        </p>
+    </div>
+
+    <!-- IMAGES -->
+    <div class="section">
+        <h2>Our Moments 📸</h2>
+
+        <img src="https://media.istockphoto.com/id/2170322617/photo/cropped-image-of-couple-holding-hands-in-darkroom.jpg?s=612x612&w=0&k=20&c=WnHIwF7ceYWvQoNF1g9NbdIGFR75VkCtp7V2Mzqt0f0=">
+
+        <img src="https://tse3.mm.bing.net/th/id/OIP.H976hu5w6oTt5Zv9q6PTPAHaE8?rs=1&pid=ImgDetMain&o=7&rm=3">
+    </div>
+
+    <!-- DETAILS -->
+    <div class="box section">
         <p>📅 20th May 2026</p>
         <p>⏰ 8.30 AM onwards</p>
         <p>📍 Wisteria Hall, Gonapola</p>
     </div>
 
-    <p style="margin-top:30px;">
-        We warmly invite you to celebrate our wedding day with us ✨
-    </p>
+    <!-- COUNTDOWN -->
+    <div class="section">
+        <h2>Countdown 💍</h2>
+        <h3 id="countdown"></h3>
+    </div>
 
-    <button onclick="alert('RSVP coming soon 💌')">RSVP</button>
+    <!-- LOCATION -->
+    <div class="section">
+        <h2>Venue Location 📍</h2>
+
+        <a href="https://www.bing.com/maps?&mepi=58~MapsAnswer~Embedded~Direction_Button&ty=0&rtp=pos.6.763859272003174_80.01305389404297__Gonapola%2C%20Western%20Province%2C%20Sri%20Lanka__e_~&mode=d&v=2&sV=1" target="_blank">
+            <button>Open Hotel Location</button>
+        </a>
+    </div>
+
+    <!-- RSVP -->
+    <div class="section">
+        <h2>RSVP 💌</h2>
+
+        <input type="text" id="name" placeholder="Your Name"><br>
+
+        <select id="attend">
+            <option value="">Will you attend?</option>
+            <option>Yes 💍</option>
+            <option>No</option>
+        </select><br>
+
+        <textarea id="msg" placeholder="Message (optional)"></textarea><br>
+
+        <button onclick="rsvp()">Send RSVP</button>
+
+        <p id="result"></p>
+    </div>
 
 </div>
+
+<!-- SCRIPT -->
+<script>
+
+// RSVP FUNCTION
+function rsvp() {
+    var name = document.getElementById("name").value;
+    var attend = document.getElementById("attend").value;
+
+    if(name == "" || attend == "") {
+        document.getElementById("result").innerHTML = "⚠ Please fill required fields";
+        return;
+    }
+
+    document.getElementById("result").innerHTML =
+    "💍 Thank you " + name + "! Your RSVP is received!";
+}
+
+// COUNTDOWN (Months + Weeks + Days + Time)
+var weddingDate = new Date("May 20, 2026 08:30:00").getTime();
+
+var x = setInterval(function() {
+
+    var now = new Date().getTime();
+    var distance = weddingDate - now;
+
+    var totalDays = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    var months = Math.floor(totalDays / 30);
+    var weeks = Math.floor((totalDays % 30) / 7);
+    var days = Math.floor((totalDays % 30) % 7);
+
+    var hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    var minutes = Math.floor((distance / (1000 * 60)) % 60);
+    var seconds = Math.floor((distance / 1000) % 60);
+
+    document.getElementById("countdown").innerHTML =
+        months + " Months " +
+        weeks + " Weeks " +
+        days + " Days <br>" +
+        hours + "h " +
+        minutes + "m " +
+        seconds + "s 💍";
+
+}, 1000);
+
+</script>
 
 </body>
 </html>
