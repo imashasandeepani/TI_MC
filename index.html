@@ -11,30 +11,38 @@ body {
     text-align: center;
     color: white;
 
-    background: url('https://media.istockphoto.com/id/2170322617/photo/cropped-image-of-couple-holding-hands-in-darkroom.jpg?s=612x612&w=0&k=20&c=WnHIwF7ceYWvQoNF1g9NbdIGFR75VkCtp7V2Mzqt0f0=') no-repeat center center fixed;
+    /* NEW BACKGROUND IMAGE */
+    background: url('https://cdn.stillwhite.com/assets/e8/a6/3a/e8a63a12a1f511e9b1880631f3556e6a/1600x.jpg') 
+    no-repeat center center fixed;
     background-size: cover;
 }
 
+/* DARK OVERLAY */
 .overlay {
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.65);
     min-height: 100vh;
     padding: 40px 20px;
 }
 
+/* TITLE */
 h1 {
-    font-size: 42px;
+    font-size: 45px;
     margin-bottom: 10px;
 }
 
-p {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
+/* SECTIONS */
 .section {
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
+/* SAVE DATE STYLE */
+.date {
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+/* BOX STYLE */
 .box {
     margin: 20px auto;
     padding: 15px;
@@ -43,12 +51,7 @@ p {
     border-radius: 10px;
 }
 
-img {
-    width: 250px;
-    border-radius: 15px;
-    margin: 10px;
-}
-
+/* BUTTON */
 button {
     padding: 12px 25px;
     border: none;
@@ -57,16 +60,24 @@ button {
     color: white;
     font-size: 16px;
     cursor: pointer;
-    margin-top: 10px;
 }
 
-input, select, textarea {
-    padding: 10px;
-    width: 80%;
-    max-width: 300px;
-    margin: 5px;
-    border-radius: 8px;
-    border: none;
+/* FOOTER */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    font-size: 14px;
+    padding: 0 10px;
+}
+
+.left, .right {
+    width: 45%;
+    text-align: left;
+}
+
+.right {
+    text-align: right;
 }
 </style>
 
@@ -86,102 +97,62 @@ input, select, textarea {
         two souls united by love.<br>
         We invite you to witness the beginning of our forever.”
         </p>
+
+        <h3>Thejana & Imasha</h3>
     </div>
 
-    <!-- IMAGES -->
+    <!-- SAVE THE DATE -->
     <div class="section">
-        <h2>Our Moments 📸</h2>
-
-        <img src="https://media.istockphoto.com/id/2170322617/photo/cropped-image-of-couple-holding-hands-in-darkroom.jpg?s=612x612&w=0&k=20&c=WnHIwF7ceYWvQoNF1g9NbdIGFR75VkCtp7V2Mzqt0f0=">
-
-        <img src="https://tse3.mm.bing.net/th/id/OIP.H976hu5w6oTt5Zv9q6PTPAHaE8?rs=1&pid=ImgDetMain&o=7&rm=3">
+        <h2>Save the Date</h2>
+        <div class="date">20 MAY 2026</div>
     </div>
 
-    <!-- DETAILS -->
-    <div class="box section">
-        <p>📅 20th May 2026</p>
-        <p>⏰ 8.30 AM onwards</p>
-        <p>📍 Sawingir Hills, Wisteria Hall, Gonapola</p>
+    <!-- CELEBRATION TIME -->
+    <div class="section box">
+        Celebration starts at <b>8.30 AM</b>
     </div>
 
-    <!-- COUNTDOWN -->
+    <!-- VENUE -->
+    <div class="section box">
+        Wisteria Hall,<br>
+        Sawingir Hills,<br>
+        Gonapala
+    </div>
+
+    <!-- MAP -->
     <div class="section">
-        <h2>Countdown 💍</h2>
-        <h3 id="countdown"></h3>
-    </div>
-
-    <!-- LOCATION -->
-    <div class="section">
-        <h2>Venue Location 📍</h2>
-
         <a href="https://www.bing.com/maps?&mepi=58~MapsAnswer~Embedded~Direction_Button&ty=0&rtp=pos.6.763859272003174_80.01305389404297__Gonapola%2C%20Western%20Province%2C%20Sri%20Lanka__e_~&mode=d&v=2&sV=1" target="_blank">
-            <button>Open Hotel Location</button>
+            <button>View Location on Map</button>
         </a>
     </div>
 
-    <!-- RSVP -->
+    <!-- CONFIRMATION -->
     <div class="section">
-        <h2>RSVP 💌</h2>
+        <p><b>Kindly confirm your presence by 3rd of May</b></p>
+    </div>
 
-        <input type="text" id="name" placeholder="Your Name"><br>
+    <!-- RSVP TEXT -->
+    <div class="section">
+        <h2>RSVP</h2>
+        <p>We look forward to celebrating with you 💍</p>
+    </div>
 
-        <select id="attend">
-            <option value="">Will you attend?</option>
-            <option>Yes 💍</option>
-            <option>No</option>
-        </select><br>
+    <!-- FOOTER CONTACT -->
+    <div class="footer">
 
-        <textarea id="msg" placeholder="Message (optional)"></textarea><br>
+        <div class="left">
+            <b>Imasha Sandeepani</b><br>
+            0766167368
+        </div>
 
-        <button onclick="rsvp()">Send RSVP</button>
+        <div class="right">
+            <b>Thejana Lakshan</b><br>
+            0772348558
+        </div>
 
-        <p id="result"></p>
     </div>
 
 </div>
-
-<script>
-
-/* RSVP */
-function rsvp() {
-    var name = document.getElementById("name").value;
-    var attend = document.getElementById("attend").value;
-
-    if(name == "" || attend == "") {
-        document.getElementById("result").innerHTML = "⚠ Please fill required fields";
-        return;
-    }
-
-    document.getElementById("result").innerHTML =
-    "💍 Thank you " + name + "! Your RSVP is received!";
-}
-
-/* COUNTDOWN */
-var weddingDate = new Date("May 20, 2026 08:30:00").getTime();
-
-var x = setInterval(function() {
-
-    var now = new Date().getTime();
-    var distance = weddingDate - now;
-
-    var totalSeconds = Math.floor(distance / 1000);
-
-    var months = Math.floor(totalSeconds / (30 * 24 * 60 * 60));
-    var days = Math.floor((totalSeconds % (30 * 24 * 60 * 60)) / (24 * 60 * 60));
-    var hours = Math.floor((totalSeconds % (24 * 60 * 60)) / (60 * 60));
-    var minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
-    var seconds = totalSeconds % 60;
-
-    document.getElementById("countdown").innerHTML =
-        months + " Months " +
-        days + " Days<br>" +
-        hours + " Hours " +
-        minutes + " Minutes " +
-        seconds + " Seconds 💍";
-
-}, 1000);
-
-</script>
 
 </body>
 </html>
