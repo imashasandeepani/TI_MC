@@ -12,9 +12,18 @@ body {
     text-align: center;
     color: white;
     font-family: 'Playfair Display', serif;
-    background: url('https://cdn.stillwhite.com/assets/e8/a6/3a/e8a63a12a1f511e9b1880631f3556e6a/1600x.jpg') no-repeat center center;
+
+    /* FIXED BACKGROUND */
+    background: url('https://cdn.stillwhite.com/assets/e8/a6/3a/e8a63a12a1f511e9b1880631f3556e6a/1600x.jpg') no-repeat center center fixed;
     background-size: cover;
-    background-attachment: fixed;
+}
+
+/* MOBILE BACKGROUND FIX */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+        background-size: cover;
+    }
 }
 
 /* OVERLAY */
@@ -41,7 +50,7 @@ body {
     font-size: 28px;
 }
 
-/* ❤️ HEART WITH SLOW ZOOM */
+/* HEART */
 .heart {
     font-size: 26px;
     margin-top: 10px;
@@ -51,18 +60,9 @@ body {
 }
 
 @keyframes slowZoom {
-    0% {
-        transform: scale(1);
-        opacity: 0.8;
-    }
-    50% {
-        transform: scale(1.25);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0.8;
-    }
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.25); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
 }
 
 /* QUOTE */
@@ -72,81 +72,18 @@ body {
     line-height: 1.6;
 }
 
-/* SAVE DATE */
-.save-title {
-    font-size: 18px;
-    margin-top: 20px;
-}
-
-/* DATE */
-.date {
-    margin-top: 10px;
-}
-
-.date .day {
-    font-size: 34px;
-    font-weight: bold;
-}
-
-.date .month {
-    font-size: 22px;
-}
-
-.date .year {
-    font-size: 34px;
-    font-weight: bold;
-}
-
-/* COUNTDOWN */
-.count {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
-
-.box span {
-    font-size: 22px;
-    font-weight: bold;
-    display: block;
-}
-
-.label {
-    font-size: 12px;
-}
-
-/* CELEBRATION */
-.small-text {
-    font-size: 14px;
-    margin-top: 10px;
-}
-
-/* BIG TITLE */
-.big-title {
-    font-size: 26px;
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-/* BUTTON */
-button {
-    padding: 8px 18px;
-    border: none;
-    border-radius: 20px;
-    background: white;
-    color: black;
-    font-size: 13px;
-    cursor: pointer;
-}
-
-/* FOOTER */
+/* FOOTER FIX (NO BLUE NUMBERS) */
 .footer {
     display: flex;
     justify-content: center;
     gap: 120px;
     margin-top: 60px;
     font-size: 14px;
+}
+
+.footer, .footer * {
+    color: white !important;
+    text-decoration: none !important;
 }
 </style>
 
@@ -163,7 +100,7 @@ button {
         <div class="right-name">Imasha</div>
     </div>
 
-    <!-- ❤️ HEART AFTER NAME -->
+    <!-- HEART -->
     <div class="heart">♥</div>
 
     <!-- QUOTE -->
@@ -172,47 +109,6 @@ button {
         two souls united by love.<br>
         We invite you to witness the beginning of our forever.”
     </div>
-
-    <!-- SAVE DATE -->
-    <div class="save-title">Save the Date</div>
-
-    <div class="date">
-        <div class="day">20</div>
-        <div class="month">May</div>
-        <div class="year">2026</div>
-    </div>
-
-    <!-- COUNTDOWN -->
-    <div class="count">
-        <div class="box"><span id="days">0</span><div class="label">Days</div></div>
-        <div class="box"><span id="hours">0</span><div class="label">Hours</div></div>
-        <div class="box"><span id="minutes">0</span><div class="label">Minutes</div></div>
-        <div class="box"><span id="seconds">0</span><div class="label">Seconds</div></div>
-    </div>
-
-    <!-- CELEBRATION -->
-    <div class="small-text">Celebration starts at 8.30 AM</div>
-
-    <!-- VENUE -->
-    <div class="big-title">Venue</div>
-    <p>Wisteria Hall, Sawingir Hills, Gonapala</p>
-
-    <!-- MAP -->
-    <a href="https://maps.app.goo.gl/NbGuq23K1cRNFQBo9?g_st=iw" target="_blank">
-        <button>Google Map</button>
-    </a>
-
-    <!-- MESSAGE -->
-    <p>Your presence will be a cherished blessing on our special day</p>
-
-    <!-- RSVP -->
-    <div class="big-title">RSVP</div>
-
-    <a href="https://forms.gle/GMM598w6QCJGeGQx7" target="_blank">
-        <button>Submit My Response</button>
-    </a>
-
-    <p>Kindly confirm your presence by 3rd of May</p>
 
     <!-- FOOTER -->
     <div class="footer">
@@ -228,21 +124,6 @@ button {
     </div>
 
 </div>
-
-<script>
-var weddingDate = new Date("May 20, 2026 08:30:00").getTime();
-
-setInterval(function() {
-    var now = new Date().getTime();
-    var distance = weddingDate - now;
-
-    document.getElementById("days").innerHTML = Math.floor(distance / (1000*60*60*24));
-    document.getElementById("hours").innerHTML = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
-    document.getElementById("minutes").innerHTML = Math.floor((distance % (1000*60*60))/(1000*60));
-    document.getElementById("seconds").innerHTML = Math.floor((distance % (1000*60))/1000);
-
-}, 1000);
-</script>
 
 </body>
 </html>
