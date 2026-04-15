@@ -10,18 +10,20 @@ body {
     font-family: 'Segoe UI', sans-serif;
     text-align: center;
     color: white;
-    background: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc') no-repeat center center fixed;
+
+    background: url('https://media.istockphoto.com/id/2170322617/photo/cropped-image-of-couple-holding-hands-in-darkroom.jpg?s=612x612&w=0&k=20&c=WnHIwF7ceYWvQoNF1g9NbdIGFR75VkCtp7V2Mzqt0f0=') no-repeat center center fixed;
     background-size: cover;
 }
 
 .overlay {
     background: rgba(0,0,0,0.6);
     min-height: 100vh;
-    padding: 50px 20px;
+    padding: 40px 20px;
 }
 
 h1 {
     font-size: 42px;
+    margin-bottom: 10px;
 }
 
 p {
@@ -74,7 +76,7 @@ input, select, textarea {
 
 <div class="overlay">
 
-    <!-- TITLE -->
+    <!-- NAME -->
     <h1>Thejana ❤ Imasha</h1>
 
     <!-- ROMANTIC MESSAGE -->
@@ -99,7 +101,7 @@ input, select, textarea {
     <div class="box section">
         <p>📅 20th May 2026</p>
         <p>⏰ 8.30 AM onwards</p>
-        <p>📍 Wisteria Hall, Gonapola</p>
+        <p>📍 Sawingir Hills, Wisteria Hall, Gonapola</p>
     </div>
 
     <!-- COUNTDOWN -->
@@ -138,10 +140,9 @@ input, select, textarea {
 
 </div>
 
-<!-- SCRIPT -->
 <script>
 
-// RSVP FUNCTION
+/* RSVP */
 function rsvp() {
     var name = document.getElementById("name").value;
     var attend = document.getElementById("attend").value;
@@ -155,7 +156,7 @@ function rsvp() {
     "💍 Thank you " + name + "! Your RSVP is received!";
 }
 
-// COUNTDOWN (Months + Weeks + Days + Time)
+/* COUNTDOWN */
 var weddingDate = new Date("May 20, 2026 08:30:00").getTime();
 
 var x = setInterval(function() {
@@ -163,23 +164,20 @@ var x = setInterval(function() {
     var now = new Date().getTime();
     var distance = weddingDate - now;
 
-    var totalDays = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var totalSeconds = Math.floor(distance / 1000);
 
-    var months = Math.floor(totalDays / 30);
-    var weeks = Math.floor((totalDays % 30) / 7);
-    var days = Math.floor((totalDays % 30) % 7);
-
-    var hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-    var minutes = Math.floor((distance / (1000 * 60)) % 60);
-    var seconds = Math.floor((distance / 1000) % 60);
+    var months = Math.floor(totalSeconds / (30 * 24 * 60 * 60));
+    var days = Math.floor((totalSeconds % (30 * 24 * 60 * 60)) / (24 * 60 * 60));
+    var hours = Math.floor((totalSeconds % (24 * 60 * 60)) / (60 * 60));
+    var minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+    var seconds = totalSeconds % 60;
 
     document.getElementById("countdown").innerHTML =
         months + " Months " +
-        weeks + " Weeks " +
-        days + " Days <br>" +
-        hours + "h " +
-        minutes + "m " +
-        seconds + "s 💍";
+        days + " Days<br>" +
+        hours + " Hours " +
+        minutes + " Minutes " +
+        seconds + " Seconds 💍";
 
 }, 1000);
 
