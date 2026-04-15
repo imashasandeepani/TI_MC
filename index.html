@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Thejana & Imasha Wedding Invitation</title>
+<title>Thejana & Imasha Wedding</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -10,72 +10,30 @@ body {
     font-family: 'Segoe UI', sans-serif;
     color: white;
     text-align: center;
-    background: black;
-}
-
-/* ENVELOPE SCREEN */
-#envelopeScreen {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url('https://cdn.stillwhite.com/assets/e8/a6/3a/e8a63a12a1f511e9b1880631f3556e6a/1600x.jpg') no-repeat center center;
-    background-size: cover;
-}
-
-.envelope {
-    width: 220px;
-    height: 140px;
-    background: #e91e63;
-    position: relative;
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-.envelope:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    border-left: 110px solid transparent;
-    border-right: 110px solid transparent;
-    border-top: 80px solid #ff4d88;
-}
-
-/* INVITATION */
-#invite {
-    display: none;
-    min-height: 100vh;
     background: url('https://cdn.stillwhite.com/assets/e8/a6/3a/e8a63a12a1f511e9b1880631f3556e6a/1600x.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
+/* DARK OVERLAY */
 .overlay {
     background: rgba(0,0,0,0.65);
     min-height: 100vh;
     padding: 40px 20px;
 }
 
-h1 {
-    font-size: 45px;
-    margin-bottom: 10px;
+/* SLIDE NAME ANIMATION */
+.slide-name {
+    font-size: 48px;
+    animation: slideIn 2s ease-in-out;
 }
 
-p {
-    font-size: 18px;
-    line-height: 1.6;
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .section {
-    margin-top: 20px;
-}
-
-.date {
-    font-size: 22px;
-    letter-spacing: 2px;
+    margin-top: 25px;
 }
 
 .box {
@@ -84,6 +42,23 @@ p {
     border: 1px solid white;
     display: inline-block;
     border-radius: 10px;
+}
+
+/* VERTICAL DATE */
+.date-box {
+    font-size: 22px;
+    line-height: 40px;
+    letter-spacing: 2px;
+}
+
+/* RSVP */
+input, select {
+    padding: 10px;
+    width: 80%;
+    max-width: 300px;
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
 }
 
 button {
@@ -96,110 +71,140 @@ button {
     cursor: pointer;
 }
 
-/* FOOTER CONTACT */
+/* FOOTER */
 .footer {
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
     font-size: 14px;
-    padding: 0 10px;
 }
 
 .left, .right {
     width: 45%;
-    text-align: left;
 }
 
-.right {
-    text-align: right;
-}
+.left { text-align: left; }
+.right { text-align: right; }
 </style>
+
 </head>
 
 <body>
 
-<!-- MUSIC -->
-<audio id="music" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8b6d5b1f1.mp3?filename=romantic-love-ambient-110624.mp3" type="audio/mpeg">
-</audio>
+<div class="overlay">
 
-<!-- ENVELOPE -->
-<div id="envelopeScreen" onclick="openInvite()">
-    <div class="envelope"></div>
-</div>
+    <!-- SLIDE NAME -->
+    <div class="slide-name">Thejana & Imasha</div>
 
-<!-- INVITATION -->
-<div id="invite">
-    <div class="overlay">
-
-        <!-- NAME -->
-        <h1>Thejana ❤ Imasha</h1>
-
-        <!-- MESSAGE -->
+    <!-- QUOTE -->
+    <div class="section">
         <p>
         “Two hearts that found their home in each other,<br>
         two souls united by love.<br>
         We invite you to witness the beginning of our forever.”
         </p>
+    </div>
 
-        <h3>Thejana & Imasha</h3>
+    <!-- SAVE DATE -->
+    <div class="section">
+        <h2>Save the Date</h2>
+        <div class="date-box">
+            20<br>
+            May<br>
+            2026
+        </div>
+    </div>
 
-        <!-- SAVE DATE -->
-        <div class="section">
-            <h2>Save the Date</h2>
-            <div class="date">20 MAY 2026</div>
+    <!-- COUNTDOWN TITLE -->
+    <div class="section">
+        <h2>Time Remaining</h2>
+        <h3 id="countdown"></h3>
+    </div>
+
+    <!-- CELEBRATION -->
+    <div class="section box">
+        Celebration starts at <b>8.30 AM</b>
+    </div>
+
+    <!-- VENUE -->
+    <div class="section">
+        <h2>Venue</h2>
+        <p>Wisteria Hall, Sawingir Hills, Gonapala</p>
+    </div>
+
+    <!-- MAP -->
+    <div class="section">
+        <a href="https://maps.app.goo.gl/NbGuq23K1cRNFQBo9?g_st=iw" target="_blank">
+            <button>Open Google Map</button>
+        </a>
+    </div>
+
+    <!-- MESSAGE -->
+    <div class="section">
+        <p><i>Your presence will be a cherished blessing on our special day</i></p>
+    </div>
+
+    <!-- RSVP -->
+    <div class="section">
+        <h2>RSVP</h2>
+
+        <input type="text" placeholder="Your Name"><br>
+        <select>
+            <option>Will you attend?</option>
+            <option>Yes</option>
+            <option>No</option>
+        </select><br>
+
+        <input type="text" placeholder="Message (optional)"><br>
+
+        <button>Submit</button>
+    </div>
+
+    <!-- CONFIRM -->
+    <div class="section">
+        <p><b>Kindly confirm your presence by 3rd of May</b></p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+
+        <div class="left">
+            IMASHA SANDEEPANI<br>
+            0766167368
         </div>
 
-        <!-- TIME -->
-        <div class="section box">
-            Celebration starts at <b>8.30 AM</b>
-        </div>
-
-        <!-- VENUE -->
-        <div class="section box">
-            Wisteria Hall,<br>
-            Sawingir Hills,<br>
-            Gonapala
-        </div>
-
-        <!-- MAP -->
-        <div class="section">
-            <a href="https://www.bing.com/maps?&mepi=58~MapsAnswer~Embedded~Direction_Button&ty=0&rtp=pos.6.763859272003174_80.01305389404297__Gonapola%2C%20Western%20Province%2C%20Sri%20Lanka__e_~&mode=d&v=2&sV=1" target="_blank">
-                <button>View Location on Map</button>
-            </a>
-        </div>
-
-        <!-- CONFIRM -->
-        <div class="section">
-            <p><b>Kindly confirm your presence by 3rd of May</b></p>
-        </div>
-
-        <!-- FOOTER CONTACT -->
-        <div class="footer">
-
-            <div class="left">
-                <b>Imasha Sandeepani</b><br>
-                0766167368
-            </div>
-
-            <div class="right">
-                <b>Thejana Lakshan</b><br>
-                0772348558
-            </div>
-
+        <div class="right">
+            THEJANA LAKSHAN<br>
+            0772348558
         </div>
 
     </div>
+
 </div>
 
 <script>
-function openInvite() {
-    document.getElementById("envelopeScreen").style.display = "none";
-    document.getElementById("invite").style.display = "block";
+var weddingDate = new Date("May 20, 2026 08:30:00").getTime();
 
-    // play music after click
-    document.getElementById("music").play();
-}
+setInterval(function() {
+    var now = new Date().getTime();
+    var distance = weddingDate - now;
+
+    var totalSeconds = Math.floor(distance / 1000);
+
+    var months = Math.floor(totalSeconds / (30 * 24 * 60 * 60));
+    var days = Math.floor((totalSeconds % (30 * 24 * 60 * 60)) / (24 * 60 * 60));
+    var hours = Math.floor((totalSeconds % (24 * 60 * 60)) / (60 * 60));
+    var minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+    var seconds = totalSeconds % 60;
+
+    document.getElementById("countdown").innerHTML =
+        months + " Months " +
+        days + " Days " +
+        hours + " Hours " +
+        minutes + " Minutes " +
+        seconds + " Seconds";
+
+}, 1000);
 </script>
 
 </body>
