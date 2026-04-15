@@ -14,47 +14,74 @@ body {
     background-size: cover;
 }
 
-/* FIXED OVERLAY (prevents color flicker) */
+/* FIXED DARK OVERLAY */
 .overlay {
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.75);
     min-height: 100vh;
     padding: 40px 20px;
 }
 
-/* COUNTDOWN TOP */
-.count-top {
-    font-size: 18px;
-    margin-bottom: 15px;
-}
-
 /* NAME ANIMATION */
 .name {
-    font-size: 42px;
-    letter-spacing: 2px;
-    animation: slideIn 2s ease;
+    font-size: 40px;
+    animation: slide 2s ease;
+    letter-spacing: 1px;
 }
 
-@keyframes slideIn {
-    from { opacity: 0; transform: translateY(-40px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes slide {
+    from {opacity:0; transform: translateY(-40px);}
+    to {opacity:1; transform: translateY(0);}
 }
 
+/* SECTION */
 .section {
     margin-top: 25px;
 }
 
-.box {
-    margin: 20px auto;
-    padding: 15px;
-    border: 1px solid white;
-    display: inline-block;
-    border-radius: 10px;
+/* DATE */
+.date {
+    line-height: 38px;
 }
 
-/* VERTICAL DATE */
-.date {
+.date .day, .date .year {
+    font-size: 20px;
+}
+
+.date .month {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* COUNTDOWN */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.time-box {
+    text-align: center;
+}
+
+.time-box span {
+    display: block;
     font-size: 22px;
-    line-height: 38px;
+    font-weight: bold;
+}
+
+.label {
+    font-size: 12px;
+}
+
+/* BOX */
+.box {
+    margin: 20px auto;
+    padding: 12px;
+    border: 1px solid white;
+    border-radius: 10px;
+    display: inline-block;
 }
 
 /* FORM */
@@ -62,19 +89,18 @@ input, select {
     padding: 10px;
     width: 80%;
     max-width: 300px;
-    margin: 6px;
+    margin: 5px;
     border-radius: 8px;
     border: none;
 }
 
 /* BUTTON */
 button {
-    padding: 12px 25px;
+    padding: 10px 20px;
+    border-radius: 20px;
     border: none;
-    border-radius: 25px;
     background: white;
     color: black;
-    font-size: 15px;
     cursor: pointer;
 }
 
@@ -90,20 +116,14 @@ button {
     text-align: center;
 }
 </style>
-
 </head>
 
 <body>
 
 <div class="overlay">
 
-    <!-- COUNTDOWN ABOVE -->
-    <div class="count-top" id="countdown"></div>
-
     <!-- NAME -->
-    <div class="name">
-        THEJANA ♥ IMASHA
-    </div>
+    <div class="name">Thejana & Imasha</div>
 
     <!-- QUOTE -->
     <div class="section">
@@ -118,13 +138,35 @@ button {
     <div class="section">
         <h3>Save the Date</h3>
         <div class="date">
-            20<br>
-            May<br>
-            2026
+            <div class="day">20</div>
+            <div class="month">May</div>
+            <div class="year">2026</div>
         </div>
     </div>
 
-    <!-- CELEBRATION -->
+    <!-- COUNTDOWN -->
+    <div class="section">
+        <div class="countdown">
+            <div class="time-box">
+                <span id="days">0</span>
+                <div class="label">Days</div>
+            </div>
+            <div class="time-box">
+                <span id="hours">0</span>
+                <div class="label">Hours</div>
+            </div>
+            <div class="time-box">
+                <span id="minutes">0</span>
+                <div class="label">Minutes</div>
+            </div>
+            <div class="time-box">
+                <span id="seconds">0</span>
+                <div class="label">Seconds</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TIME -->
     <div class="section box">
         Celebration starts at <b>8.30 AM</b>
     </div>
@@ -142,7 +184,7 @@ button {
         </a>
     </div>
 
-    <!-- ITALIC MESSAGE -->
+    <!-- MESSAGE -->
     <div class="section">
         <p><i>Your presence will be a cherished blessing on our special day</i></p>
     </div>
@@ -171,12 +213,12 @@ button {
     <div class="footer">
 
         <div class="left">
-            IMASHA SANDEEPANI<br>
+            Imasha Sandeepani<br>
             0766167368
         </div>
 
         <div class="right">
-            THEJANA LAKSHAN<br>
+            Thejana Lakshan<br>
             0772348558
         </div>
 
@@ -192,16 +234,10 @@ setInterval(function() {
     var now = new Date().getTime();
     var distance = weddingDate - now;
 
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("countdown").innerHTML =
-        days + " Days " +
-        hours + " Hours " +
-        minutes + " Minutes " +
-        seconds + " Seconds";
+    document.getElementById("days").innerHTML = Math.floor(distance / (1000*60*60*24));
+    document.getElementById("hours").innerHTML = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+    document.getElementById("minutes").innerHTML = Math.floor((distance % (1000*60*60))/(1000*60));
+    document.getElementById("seconds").innerHTML = Math.floor((distance % (1000*60))/1000);
 
 }, 1000);
 </script>
