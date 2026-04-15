@@ -1,48 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Thejana & Imasha Wedding</title>
+<title>Thejana & Imasha Wedding Invitation</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    text-align: center;
     color: white;
+    text-align: center;
+    background: black;
+}
 
-    /* NEW BACKGROUND IMAGE */
-    background: url('https://cdn.stillwhite.com/assets/e8/a6/3a/e8a63a12a1f511e9b1880631f3556e6a/1600x.jpg') 
-    no-repeat center center fixed;
+/* ENVELOPE SCREEN */
+#envelopeScreen {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('https://cdn.stillwhite.com/assets/e8/a6/3a/e8a63a12a1f511e9b1880631f3556e6a/1600x.jpg') no-repeat center center;
     background-size: cover;
 }
 
-/* DARK OVERLAY */
+.envelope {
+    width: 220px;
+    height: 140px;
+    background: #e91e63;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.envelope:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 110px solid transparent;
+    border-right: 110px solid transparent;
+    border-top: 80px solid #ff4d88;
+}
+
+/* INVITATION */
+#invite {
+    display: none;
+    min-height: 100vh;
+    background: url('https://cdn.stillwhite.com/assets/e8/a6/3a/e8a63a12a1f511e9b1880631f3556e6a/1600x.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
 .overlay {
     background: rgba(0,0,0,0.65);
     min-height: 100vh;
     padding: 40px 20px;
 }
 
-/* TITLE */
 h1 {
     font-size: 45px;
     margin-bottom: 10px;
 }
 
-/* SECTIONS */
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
 .section {
     margin-top: 20px;
 }
 
-/* SAVE DATE STYLE */
 .date {
     font-size: 22px;
     letter-spacing: 2px;
-    margin-top: 10px;
 }
 
-/* BOX STYLE */
 .box {
     margin: 20px auto;
     padding: 15px;
@@ -51,7 +86,6 @@ h1 {
     border-radius: 10px;
 }
 
-/* BUTTON */
 button {
     padding: 12px 25px;
     border: none;
@@ -62,7 +96,7 @@ button {
     cursor: pointer;
 }
 
-/* FOOTER */
+/* FOOTER CONTACT */
 .footer {
     display: flex;
     justify-content: space-between;
@@ -80,18 +114,28 @@ button {
     text-align: right;
 }
 </style>
-
 </head>
 
 <body>
 
-<div class="overlay">
+<!-- MUSIC -->
+<audio id="music" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8b6d5b1f1.mp3?filename=romantic-love-ambient-110624.mp3" type="audio/mpeg">
+</audio>
 
-    <!-- NAME -->
-    <h1>Thejana ❤ Imasha</h1>
+<!-- ENVELOPE -->
+<div id="envelopeScreen" onclick="openInvite()">
+    <div class="envelope"></div>
+</div>
 
-    <!-- ROMANTIC MESSAGE -->
-    <div class="section">
+<!-- INVITATION -->
+<div id="invite">
+    <div class="overlay">
+
+        <!-- NAME -->
+        <h1>Thejana ❤ Imasha</h1>
+
+        <!-- MESSAGE -->
         <p>
         “Two hearts that found their home in each other,<br>
         two souls united by love.<br>
@@ -99,60 +143,64 @@ button {
         </p>
 
         <h3>Thejana & Imasha</h3>
-    </div>
 
-    <!-- SAVE THE DATE -->
-    <div class="section">
-        <h2>Save the Date</h2>
-        <div class="date">20 MAY 2026</div>
-    </div>
-
-    <!-- CELEBRATION TIME -->
-    <div class="section box">
-        Celebration starts at <b>8.30 AM</b>
-    </div>
-
-    <!-- VENUE -->
-    <div class="section box">
-        Wisteria Hall,<br>
-        Sawingir Hills,<br>
-        Gonapala
-    </div>
-
-    <!-- MAP -->
-    <div class="section">
-        <a href="https://www.bing.com/maps?&mepi=58~MapsAnswer~Embedded~Direction_Button&ty=0&rtp=pos.6.763859272003174_80.01305389404297__Gonapola%2C%20Western%20Province%2C%20Sri%20Lanka__e_~&mode=d&v=2&sV=1" target="_blank">
-            <button>View Location on Map</button>
-        </a>
-    </div>
-
-    <!-- CONFIRMATION -->
-    <div class="section">
-        <p><b>Kindly confirm your presence by 3rd of May</b></p>
-    </div>
-
-    <!-- RSVP TEXT -->
-    <div class="section">
-        <h2>RSVP</h2>
-        <p>We look forward to celebrating with you 💍</p>
-    </div>
-
-    <!-- FOOTER CONTACT -->
-    <div class="footer">
-
-        <div class="left">
-            <b>Imasha Sandeepani</b><br>
-            0766167368
+        <!-- SAVE DATE -->
+        <div class="section">
+            <h2>Save the Date</h2>
+            <div class="date">20 MAY 2026</div>
         </div>
 
-        <div class="right">
-            <b>Thejana Lakshan</b><br>
-            0772348558
+        <!-- TIME -->
+        <div class="section box">
+            Celebration starts at <b>8.30 AM</b>
+        </div>
+
+        <!-- VENUE -->
+        <div class="section box">
+            Wisteria Hall,<br>
+            Sawingir Hills,<br>
+            Gonapala
+        </div>
+
+        <!-- MAP -->
+        <div class="section">
+            <a href="https://www.bing.com/maps?&mepi=58~MapsAnswer~Embedded~Direction_Button&ty=0&rtp=pos.6.763859272003174_80.01305389404297__Gonapola%2C%20Western%20Province%2C%20Sri%20Lanka__e_~&mode=d&v=2&sV=1" target="_blank">
+                <button>View Location on Map</button>
+            </a>
+        </div>
+
+        <!-- CONFIRM -->
+        <div class="section">
+            <p><b>Kindly confirm your presence by 3rd of May</b></p>
+        </div>
+
+        <!-- FOOTER CONTACT -->
+        <div class="footer">
+
+            <div class="left">
+                <b>Imasha Sandeepani</b><br>
+                0766167368
+            </div>
+
+            <div class="right">
+                <b>Thejana Lakshan</b><br>
+                0772348558
+            </div>
+
         </div>
 
     </div>
-
 </div>
+
+<script>
+function openInvite() {
+    document.getElementById("envelopeScreen").style.display = "none";
+    document.getElementById("invite").style.display = "block";
+
+    // play music after click
+    document.getElementById("music").play();
+}
+</script>
 
 </body>
 </html>
