@@ -41,9 +41,33 @@ body {
     font-size: 28px;
 }
 
-/* QUOTE (⬇️ SMALLER NOW) */
+/* ❤️ HEART WITH SLOW ZOOM */
+.heart {
+    font-size: 26px;
+    margin-top: 10px;
+    color: white;
+    display: inline-block;
+    animation: slowZoom 3s ease-in-out infinite;
+}
+
+@keyframes slowZoom {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.25);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+
+/* QUOTE */
 .quote {
-    font-size: 18px;   /* reduced size */
+    font-size: 18px;
     margin-top: 15px;
     line-height: 1.6;
 }
@@ -92,7 +116,7 @@ body {
     font-size: 12px;
 }
 
-/* CELEBRATION TEXT */
+/* CELEBRATION */
 .small-text {
     font-size: 14px;
     margin-top: 10px;
@@ -139,7 +163,10 @@ button {
         <div class="right-name">Imasha</div>
     </div>
 
-    <!-- QUOTE (SMALL NOW) -->
+    <!-- ❤️ HEART AFTER NAME -->
+    <div class="heart">♥</div>
+
+    <!-- QUOTE -->
     <div class="quote">
         “Two hearts that found their home in each other,<br>
         two souls united by love.<br>
